@@ -3,6 +3,7 @@
 To hit this project click [here](https://student-submission-app.herokuapp.com/).
 
 The login credentials for admin follows the username/email: firstadmin@gmail.com and the password: Adminaccess1
+
 The login credentials for student  as follows username/email: firstuser@gmail.com and the password: Useraccess1
 
 Once logged in you can change the credentials as convinient. Happy using task submission portal.
