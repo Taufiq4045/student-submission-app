@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-To hit this project click [here](https://student-submission-app.herokuapp.com/home).
+To hit this project click [here](https://student-submission-app.netlify.app/home).
 
 The login credentials for admin follows the username/email: firstadmin@gmail.com and the password: Adminaccess1
 
