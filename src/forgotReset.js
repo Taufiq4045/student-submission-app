@@ -28,11 +28,12 @@ function Copyright(props) {
 
     const handleSubmit = async(event) => {
       event.preventDefault();
+        
+        const userId= localStorage.getItem("userId");
+        const token= localStorage.getItem("token");
 
       const value = new FormData(event.currentTarget);
 
-      const url = value.get('url');
-      console.log(url);
       const newPassword = value.get('password');
       const rePassword = value.get('repassword');
 
@@ -41,16 +42,19 @@ function Copyright(props) {
 
       // eslint-disable-next-line no-console
 
-        await axios.post(url, {
+        await axios.post(`https://student-task-server.herokuapp.com/userpassword/${userId}/${token}`, {
             password : value.get('password')
         });
+          
+          localStorage.removeItem('userId');
+          localStorage.removeItem('token');
 
         alert("Password updated successfully");
 
         history.push('/home');
             
         } catch(err) {
-          alert("Kindly enter the valid url recieved over email");
+          alert("Kindly check the link and try again");
           console.log(err);
         }
         } else {
@@ -81,15 +85,6 @@ function Copyright(props) {
             </Typography>
             <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="url"
-                label="Enter the link recieved over email"
-                name="url"
-                autoComplete="url"
-                autoFocus
-              /><TextField
               margin="normal"
               required
               fullWidth
