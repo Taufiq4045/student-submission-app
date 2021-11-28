@@ -51,7 +51,7 @@ function App() {
       <Route exact path= '/adminpassreset' component = {AdminPassReset} />
       <Route exact path= '/resetlink' component = {ResetLink} />
       <Route exact path= '/adminresetlink' component = {AdminresetLink} />
-      <Route exact path= '/forgotpassword' component = {ForgotPassword} />
+      <Route exact path= '/forgotpassword/:userId/:token' component = {ForgotPassword} />
       <Route exact path= '/postassignment' component = {PostAssignment} />
       <Route exact path= '/assignmentreport' component = {AssignmentReport} />
       <Route exact path= '/manageadmin' component = {ManageAdmin} />
