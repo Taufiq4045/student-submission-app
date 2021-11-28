@@ -39,8 +39,6 @@ function Copyright(props) {
           localStorage.setItem("token", response.data.token);
 
         alert("Kindly check your email for reset-link");
-
-        history.push('/forgotpassword');
             
         } catch(err) {
           alert("Email is not registered, Kindly check");
