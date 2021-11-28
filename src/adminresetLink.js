@@ -3,7 +3,7 @@ import axios from 'axios';
 import {Avatar, Button, CssBaseline, TextField, Container, Box, Typography} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/Lock';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import { Link, useHistory } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 function Copyright(props) {
@@ -23,9 +23,6 @@ function Copyright(props) {
   
   export default function ResetLink() {
 
-    const history = useHistory();
-
-
     const handleSubmit = async(event) => {
       event.preventDefault();
 
@@ -34,13 +31,14 @@ function Copyright(props) {
         const value = new FormData(event.currentTarget);
       // eslint-disable-next-line no-console
 
-        await axios.post('https://student-task-server.herokuapp.com/adminpassword', {
+        const response = await axios.post('https://student-task-server.herokuapp.com/adminpassword', {
             email : value.get('email')
         });
+          
+          localStorage.setItem("userId", response.data.id);
+          localStorage.setItem("token", response.data.token);
 
         alert("Kindly check your email for reset-link");
-
-        history.push('/forgotpassword');
             
         } catch(err) {
           alert("Email is not registered, Kindly check");
